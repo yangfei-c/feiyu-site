@@ -1,0 +1,11 @@
+Product icons and screenshots are from the Feiyu extension and desktop repositories.
+Feiyu brand icon: /favicon.svg.
+
+Brand artwork
+- GitHub, GitHub Actions, Cloudflare, Cloudflare Workers, Chrome Web Store, Google Cloud, Google Search Console, WeChat, DeepSeek, Gemini, Git, Node.js and Electron: https://simpleicons.org/
+- VS Code artwork: https://github.com/devicons/devicon/tree/master/icons/vscode
+- Playwright artwork: https://playwright.dev/img/playwright-logo.svg
+- Name.com site icon: https://www.name.com/favicon.ico (provided by the site as PNG)
+- ServerChan site icon: https://the7.ft07.com/sct/images/favicon.png (linked by https://sct.ftqq.com/)
+
+Brand marks identify services and tools used by Feiyu. Trademarks belong to their respective owners.
