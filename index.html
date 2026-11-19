@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>飞羽 Feiyu — 轻量 AI 效率工具、浏览器扩展与桌面助手</title>
+  <meta name="description" content="飞羽（Feiyu）专注于构建轻量、顺手的浏览器扩展、用户脚本与桌面 AI 效率工具。" />
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #18181b;
+      --muted: #52525b;
+      --border: #e4e4e7;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-bg: #f4f4f5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #09090b;
+        --surface: #18181b;
+        --text: #f4f4f5;
+        --muted: #a1a1aa;
+        --border: #27272a;
+        --accent: #60a5fa;
+        --accent-soft: #1e293b;
+        --tag-bg: #27272a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    nav a:hover { color: var(--text); }
+    .lang-btn {
+      background: var(--tag-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .hero {
+      padding: 52px 0 40px;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 660px;
+    }
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 36px 0 16px;
+      font-weight: 600;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .card-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-link:hover { text-decoration: underline; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 18px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <span class="brand-badge">飞</span>
+        <span>飞羽 <span style="font-weight:400; color:var(--muted);">· Feiyu</span></span>
+      </div>
+      <nav>
+        <a href="#products" data-zh="产品" data-en="Products">产品</a>
+        <a href="/privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
+        <a href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener">GitHub</a>
+        <button class="lang-btn" id="langToggle" type="button">EN / 中文</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 data-zh="轻量、顺手的 AI 效率工具，为科研、开发与日常工作流而生。"
+          data-en="Lightweight AI tools built for focus, speed, and everyday workflows.">
+        轻量、顺手的 AI 效率工具，为科研、开发与日常工作流而生。
+      </h1>
+      <p data-zh="飞羽（Feiyu）专注于打磨克制好用的浏览器扩展、桌面悬浮助手与用户脚本，不抢占注意力，只在需要时出现。"
+         data-en="Feiyu builds practical browser extensions, desktop mini-copilots, and userscripts—designed to stay out of your way until the exact moment you need them.">
+        飞羽（Feiyu）专注于打磨克制好用的浏览器扩展、桌面悬浮助手与用户脚本，不抢占注意力，只在需要时出现。
+      </p>
+    </section>
+
+    <div id="products" class="section-title" data-zh="浏览器扩展" data-en="Browser Extensions">浏览器扩展</div>
+    <div class="grid">
+      <article class="card">
+        <div>
+          <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
+          <h3 data-zh="飞羽 ArXiv 论文伴侣" data-en="Feiyu ArXiv Copilot">飞羽 ArXiv 论文伴侣</h3>
+          <p data-zh="面向 arXiv、ar5iv、ScienceDirect 与 PDF 论文的公式安全翻译、截图问答与 Zotero BibTeX 导出助手。"
+             data-en="Formula-safe translation, screenshot Q&amp;A, and Zotero BibTeX export for arXiv, ar5iv, ScienceDirect, and PDFs.">
+            面向 arXiv、ar5iv、ScienceDirect 与 PDF 论文的公式安全翻译、截图问答与 Zotero BibTeX 导出助手。
+          </p>
+        </div>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener"
+           data-zh="前往 GitHub 查看 →" data-en="View on GitHub →">前往 GitHub 查看 →</a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
+          <h3 data-zh="飞羽 B 站学习助手" data-en="Feiyu Bilibili Copilot">飞羽 B 站学习助手</h3>
+          <p data-zh="B 站学习视频的字幕与弹幕总结、点击 [MM:SS] 精准空降以及高赞热评提炼助手。"
+             data-en="Instant subtitle &amp; danmaku summaries, clickable [MM:SS] timeline jumps, and hot comment highlights for Bilibili learning videos.">
+            B 站学习视频的字幕与弹幕总结、点击 [MM:SS] 精准空降以及高赞热评提炼助手。
+          </p>
+        </div>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener"
+           data-zh="前往 GitHub 查看 →" data-en="View on GitHub →">前往 GitHub 查看 →</a>
+      </article>
+    </div>
+
+    <div class="section-title" data-zh="桌面软件与用户脚本" data-en="Desktop &amp; Userscripts">桌面软件与用户脚本</div>
+    <div class="grid">
+      <article class="card">
+        <div>
+          <span class="tag" data-zh="桌面应用" data-en="Desktop App">桌面应用</span>
+          <h3 data-zh="飞羽桌面悬浮助手" data-en="Feiyu Desk Copilot">飞羽桌面悬浮助手</h3>
+          <p data-zh="常驻桌面的轻量悬浮 AI 助手：英文命名、Git 命令与提交描述生成，以及 Ctrl+V 截图即问。"
+             data-en="An always-on-top mini floating assistant for quick English naming, Git commands, commit messages, and Ctrl+V screenshot Q&amp;A.">
+            常驻桌面的轻量悬浮 AI 助手：英文命名、Git 命令与提交描述生成，以及 Ctrl+V 截图即问。
+          </p>
+        </div>
+        <span class="card-link" style="color:var(--muted);" data-zh="Windows · 开发迭代中" data-en="Windows · In active development">Windows · 开发迭代中</span>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="tag" data-zh="用户脚本" data-en="Userscripts">用户脚本</span>
+          <h3 data-zh="飞羽脚本集" data-en="Feiyu Userscripts">飞羽脚本集</h3>
+          <p data-zh="面向脚本猫（ScriptCat）的轻量效率脚本合集，包含出海需求雷达与 B 站日常辅助脚本。"
+             data-en="Focused ScriptCat utilities including Feiyu Demand Radar for indie SaaS research and Bilibili daily helper scripts.">
+            面向脚本猫（ScriptCat）的轻量效率脚本合集，包含出海需求雷达与 B 站日常辅助脚本。
+          </p>
+        </div>
+        <span class="card-link" style="color:var(--muted);" data-zh="适配脚本猫 ScriptCat" data-en="ScriptCat Compatible">适配脚本猫 ScriptCat</span>
+      </article>
+    </div>
+
+    <footer>
+      <span>© 2026 飞羽 Feiyu (feiyu.page)</span>
+      <div class="footer-links">
+        <a href="/privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
+        <a href="mailto:support@feiyu.page">support@feiyu.page</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("langToggle");
+      var lang = "zh";
+      btn.addEventListener("click", function () {
+        lang = lang === "zh" ? "en" : "zh";
+        var els = document.querySelectorAll("[data-en][data-zh]");
+        for (var i = 0; i < els.length; i++) {
+          els[i].textContent = els[i].getAttribute("data-" + lang);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

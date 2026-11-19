@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策 — 飞羽 Feiyu (feiyu.page)</title>
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #18181b;
+      --muted: #52525b;
+      --border: #e4e4e7;
+      --accent: #2563eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #09090b;
+        --surface: #18181b;
+        --text: #f4f4f5;
+        --muted: #a1a1aa;
+        --border: #27272a;
+        --accent: #60a5fa;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+    .back:hover { text-decoration: underline; }
+    article {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+    }
+    h1 { font-size: 1.75rem; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .updated { color: var(--muted); font-size: 0.88rem; margin-bottom: 28px; }
+    h2 { font-size: 1.1rem; margin: 24px 0 10px; }
+    p, li { color: var(--muted); font-size: 0.96rem; margin-bottom: 10px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    a { color: var(--accent); }
+    code {
+      background: rgba(127, 127, 127, 0.14);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="/">← 返回飞羽主页 (feiyu.page)</a>
+    <article>
+      <h1>隐私政策（Privacy Policy）</h1>
+      <p class="updated">生效日期：2026 年 11 月 19 日 · 适用于飞羽系列 Chrome 扩展（飞羽 ArXiv 论文伴侣、飞羽 B 站学习助手）及飞羽相关工具</p>
+
+      <p>飞羽（Feiyu）尊重您的隐私，所有产品均坚持“最小权限、尽量本地运行”的原则。本隐私政策说明我们的浏览器扩展及相关工具如何处理您的数据。</p>
+
+      <h2>1. 我们不会收集的数据</h2>
+      <ul>
+        <li>我们<strong>不会</strong>收集、出售、出租或交易您的个人身份信息、日常浏览历史或账号密码。</li>
+        <li>我们<strong>不会</strong>在扩展中植入任何第三方广告追踪器或商业统计脚本。</li>
+      </ul>
+
+      <h2>2. 本地存储与 API 密钥安全</h2>
+      <p>您的偏好设置、自定义提示词以及第三方 AI 服务的 API Key 仅保存在您自己浏览器的本地存储（<code>chrome.storage</code>）中，飞羽服务器不会读取或保存您的 API 密钥。</p>
+
+      <h2>3. 由用户主动触发的网页内容与 AI 请求</h2>
+      <p>仅当您主动点击功能按钮（例如总结视频字幕、翻译论文段落或截图提问）时，当前页面中与该操作相关的文本或截图才会直接从您的浏览器发送至您自行配置的 AI 模型服务商（如 DeepSeek 或 Google Gemini），并受对应服务商的隐私政策约束。</p>
+
+      <h2>4. 扩展权限说明</h2>
+      <ul>
+        <li><code>storage</code>：用于在浏览器本地保存您的配置与偏好设置。</li>
+        <li><code>activeTab</code> / 指定站点权限：仅在您主动触发扩展功能时，读取当前受支持学术或视频页面的内容。</li>
+        <li><code>contextMenus</code>：用于在网页右键菜单中提供划词翻译与快捷提问入口。</li>
+      </ul>
+
+      <h2>5. 主动反馈信息</h2>
+      <p>若您通过产品内置的反馈入口主动提交问题或建议，系统仅会发送您填写的反馈文本及基础扩展版本号，以便我们定位并修复问题。</p>
+
+      <h2>6. 联系我们</h2>
+      <p>如对本隐私政策或数据处理方式有任何疑问，请通过邮件联系我们：<a href="mailto:support@feiyu.page">support@feiyu.page</a>。</p>
+    </article>
+  </div>
+</body>
+</html>
