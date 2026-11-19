@@ -2,36 +2,46 @@
 
 const techData = [
   // id, icon, Chinese name, English name, Chinese hint, English hint, desktop cell, narrow cell
-  ["domain", "namecom.png", "Name.com", "Name.com", "注册 feiyu.page。", "Registers feiyu.page.", [1, 1], [1, 1]],
-  ["cloudflare", "cloudflare-mark.png", "Cloudflare", "Cloudflare", "处理 DNS、HTTPS 和官网部署。", "Handles DNS, HTTPS and website deployment.", [3, 1], [3, 1]],
-  ["website", "/favicon.svg", "飞羽官网", "Feiyu website", "展示飞羽工具与演示。", "Shows Feiyu tools and demos.", [5, 1], [5, 1]],
-  ["search", "googlesearchconsole.png", "Google Search Console", "Google Search Console", "用 DNS TXT 验证域名并查看索引。", "Verifies ownership with DNS TXT and monitors indexing.", [6, 1], [6, 1]],
-  ["vscode", "vscode.png", "VS Code", "VS Code", "打开飞羽的多项目工作区。", "Opens the Feiyu workspace.", [8, 1], [1, 3]],
-  ["node", "nodedotjs.png", "Node.js", "Node.js", "校验扩展脚本，构建桌面助手。", "Checks scripts and runs desktop tooling.", [9, 1], [2, 3]],
-  ["playwright", "playwright.svg", "Playwright", "Playwright", "在浏览器里调试和验证扩展。", "Tests and debugs extensions in the browser.", [10, 1], [3, 3]],
-  ["gemini", "googlegemini.png", "Gemini", "Gemini", "辅助研发调研、设计与排错。", "Helps with research, design, and troubleshooting.", [11, 1], [1, 4]],
-  ["deepseek", "deepseek.png", "DeepSeek", "DeepSeek", "提供产品模型接口和研发 Harness。", "Provides model access and development tooling.", [12, 1], [2, 4]],
-  ["git", "git.svg", "Git", "Git", "记录本地版本与代码提交。", "Tracks local versions and commits.", [1, 2], [1, 2]],
-  ["github", "github.svg", "GitHub", "GitHub", "托管飞羽的四个项目仓库。", "Hosts the four Feiyu repositories.", [3, 2], [3, 2]],
-  ["actions", "githubactions.svg", "GitHub Actions", "GitHub Actions", "检测变更、校验 MV3 并提交扩展。", "Detects changes, validates MV3, and submits extensions.", [5, 2], [5, 2]],
-  ["store", "chromewebstore.png", "Chrome 应用商店", "Chrome Web Store", "审核并分发浏览器扩展。", "Reviews and distributes browser extensions.", [7, 2], [5, 3]],
-  ["video", "/assets/products/bilibili-icon.png", "飞羽 · B站学习助手", "Feiyu Bilibili Study Assistant", "生成视频总结，按时间戳跳转。", "Summarizes videos with clickable timestamps.", [8, 2], [6, 3]],
-  ["worker", "cloudflareworkers.svg", "Cloudflare Workers", "Cloudflare Workers", "接收并转发扩展里的用户反馈。", "Receives and forwards extension feedback.", [10, 2], [6, 4]],
-  ["server", "serverchan.png", "Server酱", "ServerChan", "把反馈消息推送到微信。", "Sends feedback alerts to WeChat.", [11, 2], [5, 5]],
-  ["wechat", "wechat.png", "微信", "WeChat", "接收飞羽反馈提醒。", "Receives Feiyu feedback notifications.", [12, 2], [6, 5]],
-  ["electron", "electron.svg", "Electron", "Electron", "运行和打包 Windows 桌面助手。", "Powers and packages the Windows utility.", [1, 3], [1, 5]],
-  ["desktop", "/assets/products/desktop-icon.png", "飞羽 · 桌面 AI 助手", "Feiyu Desktop AI Assistant", "用置顶悬浮栏发起文字或截图问答。", "Asks from an always-on-top Windows prompt bar.", [3, 3], [2, 5]],
-  ["google", "googlecloud.png", "Google Cloud", "Google Cloud", "为商店发布接口提供 OAuth 2.0 授权。", "Provides OAuth 2.0 for store publishing.", [5, 3], [6, 2]],
-  ["scriptcat", "scriptcat.png", "脚本猫", "ScriptCat", "浏览和安装飞羽用户脚本。", "Browse and install Feiyu userscripts.", [7, 3], [3, 5]],
-  ["paper", "/assets/products/paper-icon.png", "飞羽 · 学术论文助手", "Feiyu Paper Assistant", "辅助阅读、翻译和导出论文记录。", "Helps read, translate, and export paper notes.", [8, 3], [5, 4]]
+  ["domain","namecom.png","Name.com","Name.com","注册 feiyu.page。","Registers feiyu.page.",[8,1],[1,3]],
+  ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","提供域名解析、HTTPS 和官网部署。","Provides DNS, HTTPS and website deployment.",[10,1],[3,3]],
+  ["website","/favicon.svg","飞羽官网","Feiyu website","展示飞羽产品和运行界面。","Shows Feiyu products and demos.",[12,1],[5,3]],
+  ["gemini","googlegemini.png","Gemini","Gemini","辅助研发调研、设计与排错。","Supports development research, design and troubleshooting.",[1,1],[1,1]],
+  ["deepseek","deepseek.png","DeepSeek","DeepSeek","辅助开发与排错，也提供产品推理接口。","Supports development and also powers product AI requests.",[2,1],[2,1]],
+  ["playwright","playwright.svg","Playwright","Playwright","提交前在浏览器里验证扩展交互。","Verifies browser extension interactions before a commit.",[4,1],[4,1]],
+  ["node","nodedotjs.png","Node.js","Node.js","提交前检查脚本语法，支持桌面构建。","Checks script syntax before commits and runs desktop builds.",[5,1],[5,1]],
+  ["vscode","vscode.png","VS Code","VS Code","开发工作区，汇集代码编辑和 AI 辅助研发。","The workspace for editing code and AI-assisted development.",[2,2],[2,2]],
+  ["git","git.svg","Git","Git","记录本地版本，把验证过的改动提交到 GitHub。","Tracks local versions and sends verified commits to GitHub.",[4,2],[4,2]],
+  ["github","github.svg","GitHub","GitHub","托管代码，同时触发官网部署和扩展发布。","Hosts code and triggers website deployments and extension publishing.",[6,2],[6,2]],
+  ["actions","githubactions.svg","GitHub Actions","GitHub Actions","检测变更、校验 MV3 并提交扩展。","Detects changes, validates MV3, and submits extensions.",[8,2],[6,3]],
+  ["store","chromewebstore.png","Chrome 应用商店","Chrome Web Store","审核并分发浏览器扩展。","Reviews and distributes browser extensions.",[10,2],[6,4]],
+  ["video","/assets/products/bilibili-icon.png","飞羽 · B站学习助手","Feiyu Bilibili Study Assistant","生成视频总结，按时间戳跳转。","Summarizes videos with clickable timestamps.",[12,2],[5,4]],
+  ["electron","electron.svg","Electron","Electron","运行和打包 Windows 桌面助手。","Powers and packages the Windows utility.",[1,3],[1,4]],
+  ["desktop","/assets/products/desktop-assistant.svg","飞羽 · 桌面 AI 助手","Feiyu Desktop AI Assistant","用置顶悬浮栏发起文字或截图问答。","Ask from a floating prompt bar using text or screenshots.",[2,3],[2,4]],
+  ["scripts","/assets/products/userscripts.svg","飞羽脚本集","Feiyu Userscripts","在脚本猫查看飞羽用户脚本。","Find Feiyu userscripts on ScriptCat.",[4,3],[3,4]],
+  ["paper","/assets/products/paper-icon.png","飞羽 · 学术论文助手","Feiyu Paper Assistant","辅助阅读、翻译和导出论文记录。","Helps read, translate, and export paper notes.",[6,3],[3,5]],
+  ["worker","cloudflareworkers.svg","Cloudflare Workers","Cloudflare Workers","接收并转发扩展里的用户反馈。","Receives and forwards extension feedback.",[8,3],[4,5]],
+  ["server","serverchan.png","Server酱","ServerChan","把反馈消息推送到微信。","Sends feedback alerts to WeChat.",[10,3],[5,5]],
+  ["wechat","wechat.png","微信","WeChat","接收飞羽反馈提醒。","Receives Feiyu feedback notifications.",[12,3],[6,5]]
 ];
 
 const edges = [
-  ["domain", "cloudflare"], ["cloudflare", "website"],
-  ["git", "github"], ["github", "cloudflare"], ["github", "actions"],
-  ["google", "actions", "authorization"], ["actions", "store"], ["store", "video"],
-  ["video", "worker"], ["paper", "worker"], ["worker", "server"], ["server", "wechat"],
-  ["electron", "desktop"]
+  ["gemini","vscode","development"],
+  ["deepseek","vscode","development"],
+  ["playwright","git","development"],
+  ["node","git","development"],
+  ["vscode","git"],
+  ["git","github"],
+  ["domain","cloudflare"],
+  ["github","cloudflare"],
+  ["cloudflare","website"],
+  ["github","actions"],
+  ["actions","store"],
+  ["store","video"],
+  ["video","worker"],
+  ["paper","worker"],
+  ["worker","server"],
+  ["server","wechat"],
+  ["electron","desktop"]
 ];
 
 let lang = "zh";
@@ -249,6 +259,7 @@ function drawConnections() {
       x1: a.x + start * ux, y1: a.y + start * uy,
       x2: b.x - end * ux, y2: b.y - end * uy,
       class: style || "",
+      "data-from": source, "data-to": target,
       "marker-end": "url(#networkArrow)"
     }));
   }

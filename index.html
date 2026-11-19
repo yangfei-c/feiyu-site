@@ -17,8 +17,6 @@
         <span>飞羽 <span class="brand-latin">Feiyu</span></span>
       </a>
       <nav aria-label="主导航" data-en-label="Main navigation">
-        <a href="#products" data-en="Products">产品</a>
-        <a href="#technology" data-en="Technology">技术</a>
         <a class="header-github" href="https://github.com/yangfei-c/feiyu-site" target="_blank" rel="noopener">GitHub</a>
         <button class="language" type="button" id="language" aria-label="Switch to English" hidden>EN <span aria-hidden="true">/</span> 中文</button>
       </nav>
@@ -41,7 +39,7 @@
         </div>
         <div class="slide-media paper-media">
           <a class="preview" href="/assets/products/paper-translation.jpg" data-preview data-caption="双语翻译运行截图" data-en-caption="Bilingual translation in use" aria-label="双语翻译运行截图" data-en-label="Bilingual translation in use">
-            <img src="/assets/products/paper-promo.jpg" width="440" height="280" fetchpriority="high" alt="飞羽学术论文助手宣传图" data-en-alt="Feiyu Paper Assistant promotional artwork">
+            <img src="/assets/products/paper-translation.jpg" width="1280" height="800" fetchpriority="high" alt="arXiv 论文里的原文、中文译文和飞羽助手面板" data-en-alt="Original paper text, Chinese translation, and the Feiyu side panel">
             <span class="zoom" aria-hidden="true">+</span>
           </a>
         </div>
@@ -65,24 +63,24 @@
       </article>
       <article class="slide" id="slide-desktop" aria-labelledby="title-desktop" hidden>
         <div class="product-copy">
-          <img class="product-icon" src="/assets/products/desktop-icon.png" width="44" height="44" alt="">
+          <img class="product-icon" src="/assets/products/desktop-assistant.svg" width="44" height="44" alt="">
           <h2 id="title-desktop" data-en="Feiyu Desktop AI Assistant">飞羽 · 桌面 AI 助手</h2>
           <p data-en="Ask from a floating Windows prompt bar. Paste an image or capture the current window.">在 Windows 置顶悬浮栏里提问。粘贴图片或截取当前窗口，即可围绕画面提问。</p>
           <div class="actions">
             <a class="button" href="https://github.com/yangfei-c/feiyu-desktop#启动和打包" target="_blank" rel="noopener" data-en="Windows setup">Windows 使用说明</a>
-            <a class="text-link" href="/assets/products/desktop-settings.png" data-preview data-caption="桌面助手设置" data-en-caption="Feiyu Desktop settings" data-en="View settings">查看设置</a>
+            <a class="text-link" href="/assets/products/desktop-current.png" data-preview data-caption="桌面助手设置" data-en-caption="Feiyu Desktop settings" data-en="View settings">查看设置</a>
           </div>
         </div>
         <div class="slide-media desktop-media">
-          <a class="preview" href="/assets/products/desktop-composer.png" data-preview data-caption="Windows 桌面悬浮提问栏" data-en-caption="Floating prompt bar on Windows" aria-label="Windows 桌面悬浮提问栏" data-en-label="Floating prompt bar on Windows">
-            <img src="/assets/products/desktop-composer.png" width="685" height="83" loading="lazy" alt="飞羽 Windows 悬浮提问栏" data-en-alt="Feiyu floating prompt bar on Windows">
+          <a class="preview" href="/assets/products/desktop-current.png" data-preview data-caption="当前桌面助手界面" data-en-caption="Current Windows desktop assistant" aria-label="当前桌面助手界面" data-en-label="Current Windows desktop assistant">
+            <img src="/assets/products/desktop-current.png" width="677" height="657" loading="lazy" alt="飞羽桌面助手的薄荷绿悬浮栏与设置页" data-en-alt="Feiyu Desktop with its mint-colored floating bar and settings">
             <span class="zoom" aria-hidden="true">+</span>
           </a>
         </div>
       </article>
       <article class="slide" id="slide-scripts" aria-labelledby="title-scripts" hidden>
         <div class="product-copy">
-          <img class="product-icon" src="/assets/official/scriptcat.png" width="44" height="44" alt="">
+          <img class="product-icon" src="/assets/products/userscripts.svg" width="44" height="44" alt="">
           <h2 id="title-scripts" data-en="Feiyu Userscripts">飞羽脚本集</h2>
           <p data-en="Find and install Feiyu userscripts through ScriptCat.">飞羽的用户脚本通过脚本猫浏览和安装。</p>
           <div class="actions">
@@ -91,7 +89,10 @@
           </div>
         </div>
         <div class="slide-media scripts-media">
-          <img src="/assets/official/scriptcat.png" width="128" height="128" loading="lazy" alt="ScriptCat 脚本猫图标" data-en-alt="ScriptCat logo">
+          <a class="preview" href="/assets/products/userscripts-preview.png" data-preview data-caption="飞羽脚本运行界面" data-en-caption="Feiyu userscript in use" aria-label="放大飞羽脚本运行截图" data-en-label="Enlarge the Feiyu userscript screenshot">
+            <img src="/assets/products/userscripts-preview.png" width="1741" height="905" loading="lazy" alt="B 站页面右侧的飞羽脚本状态面板" data-en-alt="Feiyu userscript panel on the right side of a Bilibili page">
+            <span class="zoom" aria-hidden="true">+</span>
+          </a>
         </div>
       </article>
       </div>
@@ -100,8 +101,8 @@
         <div class="picker" aria-label="选择产品" data-en-label="Choose a product">
           <button class="control pick" type="button" data-slide="paper" aria-controls="slide-paper" aria-pressed="false" aria-label="飞羽 · 学术论文助手" data-en-label="Feiyu Paper Assistant"><img src="/assets/products/paper-icon.png" width="22" height="22" alt=""></button>
           <button class="control pick" type="button" data-slide="video" aria-controls="slide-video" aria-pressed="false" aria-label="飞羽 · B站学习助手" data-en-label="Feiyu Bilibili Study Assistant"><img src="/assets/products/bilibili-icon.png" width="22" height="22" alt=""></button>
-          <button class="control pick" type="button" data-slide="desktop" aria-controls="slide-desktop" aria-pressed="false" aria-label="飞羽 · 桌面 AI 助手" data-en-label="Feiyu Desktop AI Assistant"><img src="/assets/products/desktop-icon.png" width="22" height="22" alt=""></button>
-          <button class="control pick" type="button" data-slide="scripts" aria-controls="slide-scripts" aria-pressed="false" aria-label="飞羽脚本集" data-en-label="Feiyu Userscripts"><img src="/assets/official/scriptcat.png" width="22" height="22" alt=""></button>
+          <button class="control pick" type="button" data-slide="desktop" aria-controls="slide-desktop" aria-pressed="false" aria-label="飞羽 · 桌面 AI 助手" data-en-label="Feiyu Desktop AI Assistant"><img src="/assets/products/desktop-assistant.svg" width="22" height="22" alt=""></button>
+          <button class="control pick" type="button" data-slide="scripts" aria-controls="slide-scripts" aria-pressed="false" aria-label="飞羽脚本集" data-en-label="Feiyu Userscripts"><img src="/assets/products/userscripts.svg" width="22" height="22" alt=""></button>
         </div>
         <div class="carousel-end">
           <button class="control arrow" type="button" id="next" aria-label="下一个产品" data-en-label="Next product"><span aria-hidden="true">❯</span></button>
