@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>飞羽 Feiyu — 轻量 AI 效率工具、浏览器扩展与桌面助手</title>
   <meta name="description" content="飞羽（Feiyu）专注于构建轻量、顺手的浏览器扩展、用户脚本与桌面 AI 效率工具。" />
   <style>
@@ -56,17 +57,7 @@
       font-size: 1.15rem;
       letter-spacing: -0.02em;
     }
-    .brand-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.95rem;
-    }
+    .brand-icon { display: block; }
     nav {
       display: flex;
       align-items: center;
@@ -110,7 +101,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 18px;
     }
     .card {
@@ -127,6 +118,31 @@
       border-color: var(--accent);
       transform: translateY(-2px);
     }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      flex: none;
+    }
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     .tag {
       display: inline-block;
       font-size: 0.75rem;
@@ -135,8 +151,6 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      margin-bottom: 12px;
-      width: fit-content;
     }
     .card h3 {
       font-size: 1.12rem;
@@ -171,20 +185,26 @@
       text-decoration: none;
     }
     footer a:hover { color: var(--text); }
-    .footer-links { display: flex; gap: 18px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 18px; }
+    @media (max-width: 600px) {
+      .container { padding: 28px 20px 48px; }
+      header { flex-wrap: wrap; gap: 16px; padding-bottom: 24px; }
+      nav { flex-wrap: wrap; gap: 12px 16px; }
+      .hero { padding: 36px 0 20px; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <span class="brand-badge">飞</span>
+        <img class="brand-icon" src="/favicon.svg" width="32" height="32" alt="" />
         <span>飞羽 <span style="font-weight:400; color:var(--muted);">· Feiyu</span></span>
       </div>
       <nav>
         <a href="#products" data-zh="产品" data-en="Products">产品</a>
         <a href="/privacy" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</a>
-        <a href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/yangfei-c/feiyu-site" target="_blank" rel="noopener">GitHub</a>
         <button class="lang-btn" id="langToggle" type="button">EN / 中文</button>
       </nav>
     </header>
@@ -200,59 +220,92 @@
       </p>
     </section>
 
-    <div id="products" class="section-title" data-zh="浏览器扩展" data-en="Browser Extensions">浏览器扩展</div>
+    <h2 id="products" class="section-title" data-zh="浏览器扩展" data-en="Browser Extensions">浏览器扩展</h2>
     <div class="grid">
       <article class="card">
         <div>
-          <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
-          <h3 data-zh="飞羽 ArXiv 论文伴侣" data-en="Feiyu ArXiv Copilot">飞羽 ArXiv 论文伴侣</h3>
-          <p data-zh="面向 arXiv、ar5iv、ScienceDirect 与 PDF 论文的公式安全翻译、截图问答与 Zotero BibTeX 导出助手。"
-             data-en="Formula-safe translation, screenshot Q&amp;A, and Zotero BibTeX export for arXiv, ar5iv, ScienceDirect, and PDFs.">
-            面向 arXiv、ar5iv、ScienceDirect 与 PDF 论文的公式安全翻译、截图问答与 Zotero BibTeX 导出助手。
+          <div class="card-meta">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M6 3.5h8l4 4v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" />
+                <path d="M14 3.5v4h4M8 12h6m-6 4h6" />
+              </svg>
+            </span>
+            <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
+          </div>
+          <h3 data-zh="飞羽 · 学术论文助手" data-en="Feiyu Paper Assistant">飞羽 · 学术论文助手</h3>
+          <p data-zh="支持 arXiv、ar5iv、ScienceDirect 及 PDF 论文页面，提供结构化导读、双语对照翻译、划词与截图问答和 Zotero 文献导出。"
+             data-en="Read papers on arXiv, ar5iv, ScienceDirect, and in PDF format with structured guides, bilingual translation, text and screenshot Q&amp;A, and BibTeX export for Zotero.">
+            支持 arXiv、ar5iv、ScienceDirect 及 PDF 论文页面，提供结构化导读、双语对照翻译、划词与截图问答和 Zotero 文献导出。
           </p>
         </div>
-        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener"
-           data-zh="前往 GitHub 查看 →" data-en="View on GitHub →">前往 GitHub 查看 →</a>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-arxiv-copilot" target="_blank" rel="noopener"
+           data-zh="在 GitHub 查看" data-en="View on GitHub">在 GitHub 查看</a>
       </article>
 
       <article class="card">
         <div>
-          <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
-          <h3 data-zh="飞羽 B 站学习助手" data-en="Feiyu Bilibili Copilot">飞羽 B 站学习助手</h3>
-          <p data-zh="B 站学习视频的字幕与弹幕总结、点击 [MM:SS] 精准空降以及高赞热评提炼助手。"
-             data-en="Instant subtitle &amp; danmaku summaries, clickable [MM:SS] timeline jumps, and hot comment highlights for Bilibili learning videos.">
-            B 站学习视频的字幕与弹幕总结、点击 [MM:SS] 精准空降以及高赞热评提炼助手。
+          <div class="card-meta">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
+                <path d="m10 9 5 3-5 3V9Z" />
+              </svg>
+            </span>
+            <span class="tag" data-zh="Chrome 扩展" data-en="Chrome Extension">Chrome 扩展</span>
+          </div>
+          <h3 data-zh="飞羽 · B站学习助手" data-en="Feiyu Bilibili Study Assistant">飞羽 · B站学习助手</h3>
+          <p data-zh="读取 B 站字幕生成带时间戳的视频总结，支持点击跳转、提炼高赞评论与视频问答。"
+             data-en="Summarize Bilibili videos from subtitles, jump to clickable timestamps, highlight top comments, and ask questions about the video.">
+            读取 B 站字幕生成带时间戳的视频总结，支持点击跳转、提炼高赞评论与视频问答。
           </p>
         </div>
-        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions" target="_blank" rel="noopener"
-           data-zh="前往 GitHub 查看 →" data-en="View on GitHub →">前往 GitHub 查看 →</a>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-bilibili-copilot" target="_blank" rel="noopener"
+           data-zh="在 GitHub 查看" data-en="View on GitHub">在 GitHub 查看</a>
       </article>
     </div>
 
-    <div class="section-title" data-zh="桌面软件与用户脚本" data-en="Desktop &amp; Userscripts">桌面软件与用户脚本</div>
+    <h2 class="section-title" data-zh="桌面软件与用户脚本" data-en="Desktop &amp; Userscripts">桌面软件与用户脚本</h2>
     <div class="grid">
       <article class="card">
         <div>
-          <span class="tag" data-zh="桌面应用" data-en="Desktop App">桌面应用</span>
-          <h3 data-zh="飞羽桌面悬浮助手" data-en="Feiyu Desk Copilot">飞羽桌面悬浮助手</h3>
-          <p data-zh="常驻桌面的轻量悬浮 AI 助手：英文命名、Git 命令与提交描述生成，以及 Ctrl+V 截图即问。"
-             data-en="An always-on-top mini floating assistant for quick English naming, Git commands, commit messages, and Ctrl+V screenshot Q&amp;A.">
-            常驻桌面的轻量悬浮 AI 助手：英文命名、Git 命令与提交描述生成，以及 Ctrl+V 截图即问。
+          <div class="card-meta">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="3" y="4" width="18" height="12" rx="2" />
+                <path d="M8 20h8m-4-4v4M7 10h10" />
+              </svg>
+            </span>
+            <span class="tag" data-zh="桌面应用" data-en="Desktop App">桌面应用</span>
+          </div>
+          <h3 data-zh="飞羽 · 桌面 AI 助手" data-en="Feiyu Desktop AI Assistant">飞羽 · 桌面 AI 助手</h3>
+          <p data-zh="Windows 常驻置顶提问条，支持文字提问、粘贴图片和截取当前窗口。"
+             data-en="An always-on-top Windows prompt bar for text questions, pasted images, and window screenshots.">
+            Windows 常驻置顶提问条，支持文字提问、粘贴图片和截取当前窗口。
           </p>
         </div>
-        <span class="card-link" style="color:var(--muted);" data-zh="Windows · 开发迭代中" data-en="Windows · In active development">Windows · 开发迭代中</span>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-desktop" target="_blank" rel="noopener"
+           data-zh="在 GitHub 查看" data-en="View on GitHub">在 GitHub 查看</a>
       </article>
 
       <article class="card">
         <div>
-          <span class="tag" data-zh="用户脚本" data-en="Userscripts">用户脚本</span>
+          <div class="card-meta">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-2-13-4 16" />
+              </svg>
+            </span>
+            <span class="tag" data-zh="用户脚本" data-en="Userscripts">用户脚本</span>
+          </div>
           <h3 data-zh="飞羽脚本集" data-en="Feiyu Userscripts">飞羽脚本集</h3>
-          <p data-zh="面向脚本猫（ScriptCat）的轻量效率脚本合集，包含出海需求雷达与 B 站日常辅助脚本。"
-             data-en="Focused ScriptCat utilities including Feiyu Demand Radar for indie SaaS research and Bilibili daily helper scripts.">
-            面向脚本猫（ScriptCat）的轻量效率脚本合集，包含出海需求雷达与 B 站日常辅助脚本。
+          <p data-zh="面向具体网站的用户脚本项目，脚本发布筹备中。"
+             data-en="A userscript project for site-specific utilities. Scripts are in preparation.">
+            面向具体网站的用户脚本项目，脚本发布筹备中。
           </p>
         </div>
-        <span class="card-link" style="color:var(--muted);" data-zh="适配脚本猫 ScriptCat" data-en="ScriptCat Compatible">适配脚本猫 ScriptCat</span>
+        <a class="card-link" href="https://github.com/yangfei-c/feiyu-userscripts" target="_blank" rel="noopener"
+           data-zh="查看项目说明" data-en="View project overview">查看项目说明</a>
       </article>
     </div>
 
@@ -271,6 +324,7 @@
       var lang = "zh";
       btn.addEventListener("click", function () {
         lang = lang === "zh" ? "en" : "zh";
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
         var els = document.querySelectorAll("[data-en][data-zh]");
         for (var i = 0; i < els.length; i++) {
           els[i].textContent = els[i].getAttribute("data-" + lang);
