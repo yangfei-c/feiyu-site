@@ -1,11 +1,27 @@
-Product icons and screenshots are from the Feiyu extension and desktop repositories.
+Product icons, promotional artwork, and screenshots come from the Feiyu extension and desktop repositories.
 Feiyu brand icon: /favicon.svg.
 
-Brand artwork
-- GitHub, GitHub Actions, Cloudflare, Cloudflare Workers, Chrome Web Store, Google Cloud, Google Search Console, WeChat, DeepSeek, Gemini, Git, Node.js and Electron: https://simpleicons.org/
-- VS Code artwork: https://github.com/devicons/devicon/tree/master/icons/vscode
-- Playwright artwork: https://playwright.dev/img/playwright-logo.svg
-- Name.com site icon: https://www.name.com/favicon.ico (provided by the site as PNG)
-- ServerChan site icon: https://the7.ft07.com/sct/images/favicon.png (linked by https://sct.ftqq.com/)
+Official brand sources
+github: https://github.githubassets.com/favicons/favicon.svg
+githubactions: https://raw.githubusercontent.com/primer/octicons/main/icons/workflow-24.svg
+cloudflare: https://www.cloudflare.com/favicon.ico
+cloudflareworkers: https://cf-assets.www.cloudflare.com/dzlvafdwdttg/4SZLSkMwLsnVWJrFbxkqsQ/b468f03d2af09a8ec517687833755417/cloudflare-workers.svg
+chromewebstore: https://ssl.gstatic.com/chrome/webstore/images/icon_96px.png
+googlecloud: https://www.gstatic.com/cgc/super_cloud_gradient.png
+googlesearchconsole: https://www.gstatic.com/search-console/scfe/favicon.png
+wechat: https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico
+deepseek: https://www.deepseek.com/favicon.ico
+googlegemini: https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png
+git: https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg
+nodedotjs: https://nodejs.org/static/images/favicons/favicon.png
+playwright: https://playwright.dev/img/playwright-logo.svg
+electron: https://raw.githubusercontent.com/electron/website/main/static/assets/img/logo.svg
+vscode: https://code.visualstudio.com/assets/apple-touch-icon.png
+namecom: https://www.name.com/favicon.ico
+serverchan: https://the7.ft07.com/sct/images/favicon.png
+scriptcat: https://docs.scriptcat.org/img/logo.png
+qq: https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/7f/b6/e67fb608-d48b-4366-e99f-ade6b3745728/AppIcon-1-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/100x100bb.jpg
 
-Brand marks identify services and tools used by Feiyu. Trademarks belong to their respective owners.
+Tencent QQ app artwork is supplied by Tencent via the App Store.
+The DeepSeek favicon is exported to PNG for web delivery.
+Trademarks belong to their respective owners.

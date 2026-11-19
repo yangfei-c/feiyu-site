@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/site.css">
   <script src="/site.js" defer></script>
-  <title>飞羽 Feiyu · 论文阅读、B 站学习与桌面 AI 助手</title>
+  <title>飞羽 Feiyu</title>
 </head>
 <body>
   <header class="site-header">
@@ -19,145 +19,102 @@
       <nav aria-label="主导航" data-en-label="Main navigation">
         <a href="#products" data-en="Products">产品</a>
         <a href="#technology" data-en="Technology">技术</a>
-        <a class="header-github" href="https://github.com/yangfei-c/feiyu-site">GitHub</a>
+        <a class="header-github" href="https://github.com/yangfei-c/feiyu-site" target="_blank" rel="noopener">GitHub</a>
         <button class="language" type="button" id="language" aria-label="Switch to English" hidden>EN <span aria-hidden="true">/</span> 中文</button>
       </nav>
     </div>
   </header>
 
   <main class="shell">
-    <section class="intro" aria-labelledby="hero-title">
-      <h1 id="hero-title" data-en="Feiyu productivity tools">飞羽效率工具</h1>
-      <p data-en="Read papers, take notes on Bilibili, and ask AI from your Windows desktop.">读论文、整理 B 站视频笔记，也能随时在 Windows 桌面向 AI 提问。</p>
-    </section>
-
+    <h1 class="sr-only" data-en="Feiyu">飞羽</h1>
     <section class="products" id="products" aria-label="飞羽产品" data-en-label="Feiyu products">
-      <article class="product featured">
+      <div class="slide-stage" id="slideStage">
+      <article class="slide" id="slide-paper" aria-labelledby="title-paper">
         <div class="product-copy">
-          <img class="product-icon" src="/assets/products/paper-icon.png" width="56" height="56" alt="">
-          <h2 data-en="Feiyu Paper Assistant">飞羽 · 学术论文助手</h2>
-          <p data-en="Read papers on arXiv, ar5iv, and ScienceDirect with bilingual text, intact equations, and an AI side panel. Export references to Zotero.">在 arXiv、ar5iv、ScienceDirect 和 PDF 论文页读双语译文、查看公式、划词提问。阅读记录可导出到 Zotero。</p>
+          <img class="product-icon" src="/assets/products/paper-icon.png" width="44" height="44" alt="">
+          <h2 id="title-paper" data-en="Feiyu Paper Assistant">飞羽 · 学术论文助手</h2>
+          <p data-en="Translate and ask questions on arXiv, ar5iv, ScienceDirect, and PDF papers. Export reading records to Zotero.">在 arXiv、ar5iv、ScienceDirect 和 PDF 论文页做双语翻译、划词提问，导出 Zotero 阅读记录。</p>
           <div class="actions">
-            <a class="button button-primary" href="https://github.com/yangfei-c/feiyu-extensions/releases/tag/v2.3.0" data-en="Get the GitHub release">获取 GitHub 安装包</a>
-            <a class="text-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-arxiv-copilot#本地手动安装" data-en="Installation guide">安装说明</a>
+            <a class="button" href="https://github.com/yangfei-c/feiyu-extensions/releases/tag/v2.3.0" target="_blank" rel="noopener" data-en="Get the installer">获取安装包</a>
+            <a class="text-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-arxiv-copilot#本地手动安装" target="_blank" rel="noopener" data-en="Installation guide">安装说明</a>
           </div>
         </div>
-        <figure class="featured-demo">
-          <a class="preview paper-preview" href="/assets/products/paper-translation.jpg" data-preview="paper" aria-label="放大论文双语翻译截图" data-en-label="Enlarge the bilingual paper screenshot">
-            <img src="/assets/products/paper-translation.jpg" width="1280" height="800" fetchpriority="high" alt="arXiv 论文中的英文原文、中文译文、公式和飞羽论文助手侧栏" data-en-alt="English text, Chinese translation, equations, and the Feiyu panel on an arXiv paper">
+        <div class="slide-media paper-media">
+          <a class="preview" href="/assets/products/paper-translation.jpg" data-preview data-caption="双语翻译运行截图" data-en-caption="Bilingual translation in use" aria-label="双语翻译运行截图" data-en-label="Bilingual translation in use">
+            <img src="/assets/products/paper-promo.jpg" width="440" height="280" fetchpriority="high" alt="飞羽学术论文助手宣传图" data-en-alt="Feiyu Paper Assistant promotional artwork">
             <span class="zoom" aria-hidden="true">+</span>
           </a>
-          <figcaption data-en="Bilingual translation on an arXiv paper">arXiv 论文页的双语对照翻译</figcaption>
-        </figure>
+        </div>
       </article>
-
-      <div class="product-grid">
-        <article class="product secondary">
-          <a class="preview video-preview" href="/assets/products/bilibili-summary.jpg" data-preview="video" aria-label="放大 B 站视频总结截图" data-en-label="Enlarge the Bilibili video summary screenshot">
-            <img src="/assets/products/bilibili-summary.jpg" width="1280" height="800" loading="lazy" alt="B 站视频旁的飞羽总结面板，显示核心结论和带时间戳的分段大纲" data-en-alt="Feiyu beside a Bilibili video, showing key takeaways and a timestamped outline">
+      <article class="slide" id="slide-video" aria-labelledby="title-video" hidden>
+        <div class="product-copy">
+          <img class="product-icon" src="/assets/products/bilibili-icon.png" width="44" height="44" alt="">
+          <h2 id="title-video" data-en="Feiyu Bilibili Study Assistant">飞羽 · B站学习助手</h2>
+          <p data-en="Summarize subtitles, jump by timestamp, and find useful notes in top comments.">用字幕生成视频大纲，点击时间戳跳转，提炼高赞评论里的补充资料。</p>
+          <div class="actions">
+            <a class="button" href="https://chromewebstore.google.com/detail/jechfdjofhjjkofiekmdhnkjjkcnjgge" target="_blank" rel="noopener" data-en="Add to Chrome">安装 Chrome 扩展</a>
+            <a class="text-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-bilibili-copilot" target="_blank" rel="noopener" data-en="Source code">查看源码</a>
+          </div>
+        </div>
+        <div class="slide-media video-media">
+          <a class="preview" href="/assets/products/bilibili-summary.jpg" data-preview data-caption="B 站视频总结运行截图" data-en-caption="Bilibili summary in use" aria-label="B 站视频总结运行截图" data-en-label="Bilibili summary in use">
+            <img src="/assets/products/bilibili-summary.jpg" width="1280" height="800" loading="lazy" alt="飞羽在 B 站视频旁展示带时间戳的总结" data-en-alt="A timestamped Feiyu summary beside a Bilibili video">
             <span class="zoom" aria-hidden="true">+</span>
           </a>
-          <div class="product-copy">
-            <div class="product-heading">
-              <img class="product-icon" src="/assets/products/bilibili-icon.png" width="42" height="42" alt="">
-              <h2 data-en="Feiyu Bilibili Study Assistant">飞羽 · B站学习助手</h2>
-            </div>
-            <p data-en="Summarize video subtitles, jump to moments by timestamp, and find useful notes in top comments.">用字幕生成分段大纲，点击时间戳回到对应片段，也能提炼高赞评论里的补充资料。</p>
-            <div class="actions">
-              <a class="button" href="https://chromewebstore.google.com/detail/jechfdjofhjjkofiekmdhnkjjkcnjgge" data-en="Add to Chrome">安装 Chrome 扩展</a>
-              <a class="text-link" href="https://github.com/yangfei-c/feiyu-extensions/tree/main/feiyu-bilibili-copilot" data-en="Source code">查看源码</a>
-            </div>
+        </div>
+      </article>
+      <article class="slide" id="slide-desktop" aria-labelledby="title-desktop" hidden>
+        <div class="product-copy">
+          <img class="product-icon" src="/assets/products/desktop-icon.png" width="44" height="44" alt="">
+          <h2 id="title-desktop" data-en="Feiyu Desktop AI Assistant">飞羽 · 桌面 AI 助手</h2>
+          <p data-en="Ask from a floating Windows prompt bar. Paste an image or capture the current window.">在 Windows 置顶悬浮栏里提问。粘贴图片或截取当前窗口，即可围绕画面提问。</p>
+          <div class="actions">
+            <a class="button" href="https://github.com/yangfei-c/feiyu-desktop#启动和打包" target="_blank" rel="noopener" data-en="Windows setup">Windows 使用说明</a>
+            <a class="text-link" href="/assets/products/desktop-settings.png" data-preview data-caption="桌面助手设置" data-en-caption="Feiyu Desktop settings" data-en="View settings">查看设置</a>
           </div>
-        </article>
-
-        <article class="product secondary">
-          <a class="preview desktop-preview" href="/assets/products/desktop-composer.png" data-preview="desktop" aria-label="放大桌面悬浮提问栏截图" data-en-label="Enlarge the desktop prompt bar screenshot">
-            <img src="/assets/products/desktop-composer.png" width="685" height="83" loading="lazy" alt="飞羽桌面悬浮提问栏，显示提问输入框、截图与截窗口按钮" data-en-alt="Feiyu floating prompt bar with a question field and screenshot controls">
+        </div>
+        <div class="slide-media desktop-media">
+          <a class="preview" href="/assets/products/desktop-composer.png" data-preview data-caption="Windows 桌面悬浮提问栏" data-en-caption="Floating prompt bar on Windows" aria-label="Windows 桌面悬浮提问栏" data-en-label="Floating prompt bar on Windows">
+            <img src="/assets/products/desktop-composer.png" width="685" height="83" loading="lazy" alt="飞羽 Windows 悬浮提问栏" data-en-alt="Feiyu floating prompt bar on Windows">
             <span class="zoom" aria-hidden="true">+</span>
           </a>
-          <div class="product-copy">
-            <div class="product-heading">
-              <img class="product-icon" src="/assets/products/desktop-icon.png" width="42" height="42" alt="">
-              <h2 data-en="Feiyu Desktop AI Assistant">飞羽 · 桌面 AI 助手</h2>
-            </div>
-            <p data-en="An always-on-top Windows prompt bar. Paste an image or capture the current window to ask about it.">Windows 置顶提问栏。粘贴图片或截取当前窗口，就能围绕画面提问。</p>
-            <div class="actions">
-              <a class="button" href="https://github.com/yangfei-c/feiyu-desktop#启动和打包" data-en="Windows setup">Windows 使用说明</a>
-              <a class="text-link" href="/assets/products/desktop-settings.png" data-preview="settings" data-en="View settings">查看设置界面</a>
-            </div>
+        </div>
+      </article>
+      <article class="slide" id="slide-scripts" aria-labelledby="title-scripts" hidden>
+        <div class="product-copy">
+          <img class="product-icon" src="/assets/official/scriptcat.png" width="44" height="44" alt="">
+          <h2 id="title-scripts" data-en="Feiyu Userscripts">飞羽脚本集</h2>
+          <p data-en="Find and install Feiyu userscripts through ScriptCat.">飞羽的用户脚本通过脚本猫浏览和安装。</p>
+          <div class="actions">
+            <a class="button" href="https://scriptcat.org/zh-CN" target="_blank" rel="noopener" data-en="Open ScriptCat">前往脚本猫</a>
+            <a class="text-link" href="https://github.com/yangfei-c/feiyu-userscripts" target="_blank" rel="noopener" data-en="Project overview">项目说明</a>
           </div>
-        </article>
+        </div>
+        <div class="slide-media scripts-media">
+          <img src="/assets/official/scriptcat.png" width="128" height="128" loading="lazy" alt="ScriptCat 脚本猫图标" data-en-alt="ScriptCat logo">
+        </div>
+      </article>
       </div>
-
-      <article class="script-note">
-        <div>
-          <h2 data-en="Feiyu Userscripts">飞羽脚本集</h2>
-          <p data-en="Site-specific utilities in preparation.">面向具体网站的用户脚本，筹备中。</p>
+      <div class="carousel-controls" id="carouselControls" hidden>
+        <button class="control arrow" type="button" id="previous" aria-label="上一个产品" data-en-label="Previous product"><span aria-hidden="true">❮</span></button>
+        <div class="picker" aria-label="选择产品" data-en-label="Choose a product">
+          <button class="control pick" type="button" data-slide="paper" aria-controls="slide-paper" aria-pressed="false" aria-label="飞羽 · 学术论文助手" data-en-label="Feiyu Paper Assistant"><img src="/assets/products/paper-icon.png" width="22" height="22" alt=""></button>
+          <button class="control pick" type="button" data-slide="video" aria-controls="slide-video" aria-pressed="false" aria-label="飞羽 · B站学习助手" data-en-label="Feiyu Bilibili Study Assistant"><img src="/assets/products/bilibili-icon.png" width="22" height="22" alt=""></button>
+          <button class="control pick" type="button" data-slide="desktop" aria-controls="slide-desktop" aria-pressed="false" aria-label="飞羽 · 桌面 AI 助手" data-en-label="Feiyu Desktop AI Assistant"><img src="/assets/products/desktop-icon.png" width="22" height="22" alt=""></button>
+          <button class="control pick" type="button" data-slide="scripts" aria-controls="slide-scripts" aria-pressed="false" aria-label="飞羽脚本集" data-en-label="Feiyu Userscripts"><img src="/assets/official/scriptcat.png" width="22" height="22" alt=""></button>
         </div>
-        <a class="text-link" href="https://github.com/yangfei-c/feiyu-userscripts" data-en="Project overview">查看项目说明</a>
-      </article>
+        <div class="carousel-end">
+          <button class="control arrow" type="button" id="next" aria-label="下一个产品" data-en-label="Next product"><span aria-hidden="true">❯</span></button>
+          <button class="control rotation" type="button" id="rotation" aria-label="暂停自动切换"><span aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <p class="sr-only" id="carouselStatus" aria-live="polite"></p>
     </section>
 
-    <section class="technology" id="technology" aria-labelledby="technology-title">
-      <div class="section-heading">
-        <h2 id="technology-title" data-en="Technical architecture">技术架构</h2>
-        <p data-en="Select a logo to see its role in Feiyu.">选择图标，查看它在飞羽中的用途。</p>
+    <section class="technology" id="technology" aria-label="飞羽技术栈" data-en-label="Feiyu technology stack" hidden>
+      <div class="network" id="network">
+        <svg id="connections" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
       </div>
-
-      <div class="architecture">
-        <div class="flows">
-          <!-- Brand marks are stored locally. Simple Icons, Devicon and official artwork sources are listed in assets/credits.txt. -->
-          <div class="flow-row">
-            <h3 data-en="Website deployment">官网部署</h3>
-            <div class="flow-track" data-flow="website"></div>
-          </div>
-          <div class="flow-row">
-            <h3 data-en="Extension publishing">扩展发布</h3>
-            <div class="flow-track" data-flow="extension"></div>
-          </div>
-          <div class="flow-row">
-            <h3 data-en="Feedback delivery">反馈通知</h3>
-            <div class="flow-track" data-flow="feedback"></div>
-          </div>
-        </div>
-
-        <aside class="node-detail" id="node-detail" aria-live="polite" aria-atomic="true">
-          <div class="detail-icon"><img id="detailIcon" src="/assets/brands/github.svg" width="27" height="27" alt=""></div>
-          <h3 id="detailName">GitHub</h3>
-          <p id="detailText">托管飞羽的四个项目仓库。官网主分支更新后触发 Cloudflare 构建。</p>
-          <a class="text-link" id="detailLink" href="https://github.com/yangfei-c/feiyu-site" data-en="View repository or docs">查看仓库或文档</a>
-        </aside>
-      </div>
-
-      <details class="stack">
-        <summary data-en="See the full technology stack">查看完整技术栈</summary>
-        <div class="stack-grid">
-          <div>
-            <h3 data-en="Domain and verification">域名与验证</h3>
-            <div class="tool-track" data-flow="domain"></div>
-            <p data-en="Name.com registers feiyu.page. Cloudflare handles DNS, HTTPS and static hosting. Google Search Console verifies ownership through a DNS TXT record.">Name.com 注册域名。Cloudflare 提供 DNS、HTTPS 和静态托管。Google Search Console 通过 DNS TXT 记录验证所有权。</p>
-          </div>
-          <div>
-            <h3 data-en="Local development">本地研发</h3>
-            <div class="tool-track" data-flow="tools"></div>
-            <p data-en="VS Code, Node.js, and Git run the local workspace. DeepSeek Harness (dsh) and dsh-cost-meter, Playwright MCP, Gemini Pro, and Codex support development and testing.">VS Code、Node.js 和 Git 支撑本地工作区。DeepSeek Harness（dsh）与 dsh-cost-meter、Playwright MCP、Gemini Pro 和 Codex 用于开发、调研与调试。</p>
-          </div>
-          <div>
-            <h3 data-en="Products and models">产品与模型</h3>
-            <div class="tool-track" data-flow="runtime"></div>
-            <p data-en="The website uses plain HTML, CSS, and JavaScript. The browser extensions use Manifest V3. Electron and electron-builder power the Windows utility. The tools support DeepSeek and configurable model endpoints.">官网使用原生 HTML、CSS 和 JS。扩展采用 Manifest V3。桌面助手由 Electron 和 electron-builder 支撑。AI 工具支持 DeepSeek 与可配置模型接口。</p>
-          </div>
-          <div>
-            <h3 data-en="Browser extension release">扩展发布配置</h3>
-            <p data-en="dorny/paths-filter detects changes. GitHub Actions runs node --check and validates Manifest V3 before chrome-webstore-upload-cli submits the package. The Chrome Web Store API uses Google Cloud OAuth 2.0 authorization.">GitHub Actions 用 dorny/paths-filter 检测变更，执行 node --check 和 MV3 校验，再由 chrome-webstore-upload-cli 提交。Chrome Web Store API 使用 Google Cloud OAuth 2.0 授权。</p>
-          </div>
-          <div>
-            <h3 data-en="Userscript plans">脚本筹备方向</h3>
-            <p data-en="Planned work includes ScriptCat, GM_xmlhttpRequest, local state via GM_getValue, and data from Hacker News, GitHub Issues, and Reddit RSS.">筹备方向包括 ScriptCat、GM_xmlhttpRequest、GM_getValue 状态存储，以及 Hacker News、GitHub Issues 和 Reddit RSS 数据源。</p>
-          </div>
-        </div>
-      </details>
-      <noscript><p class="no-js">启用 JavaScript 可查看技术图和中英切换。</p></noscript>
     </section>
   </main>
 
@@ -166,16 +123,17 @@
       <span>© 2026 飞羽 Feiyu</span>
       <div>
         <a href="/privacy" data-en="Privacy policy">隐私政策</a>
-        <a href="mailto:support@feiyu.page" data-en="Contact">联系我们</a>
+        <button class="control qq" type="button" id="qqContact" aria-label="复制联系 QQ 3260693417" data-en-label="Copy contact QQ number 3260693417" data-tip="QQ 联系 · 3260693417，点击复制" data-en-tip="QQ contact · 3260693417, click to copy">
+          <img src="/assets/official/qq.jpg" width="24" height="24" alt="">
+        </button>
       </div>
     </div>
   </footer>
 
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
   <dialog id="previewDialog" aria-labelledby="previewCaption">
     <figure class="lightbox">
-      <form method="dialog">
-        <button class="close-preview" type="submit" aria-label="关闭截图" data-en-label="Close screenshot">×</button>
-      </form>
+      <form method="dialog"><button class="close-preview" type="submit" aria-label="关闭截图" data-en-label="Close screenshot">×</button></form>
       <img id="previewImage" src="/assets/products/paper-translation.jpg" loading="lazy" alt="">
       <figcaption id="previewCaption"></figcaption>
     </figure>
