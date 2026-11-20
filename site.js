@@ -2,47 +2,37 @@
 
 const techData = [
   // id, icon, Chinese name, English name, Chinese hint, English hint, desktop cell, narrow cell
-  ["domain","namecom.png","Name.com","Name.com","注册 feiyu.page。","Registers feiyu.page.",[8,1],[1,3]],
-  ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","提供域名解析、HTTPS 和官网部署。","Provides DNS, HTTPS and website deployment.",[10,1],[3,3]],
-  ["website","/favicon.svg","飞羽官网","Feiyu website","展示飞羽产品和运行界面。","Shows Feiyu products and demos.",[12,1],[5,3]],
-  ["gemini","googlegemini.png","Gemini","Gemini","辅助研发调研、设计与排错。","Supports development research, design and troubleshooting.",[1,1],[1,1]],
-  ["deepseek","deepseek.png","DeepSeek","DeepSeek","辅助开发与排错，也提供产品推理接口。","Supports development and also powers product AI requests.",[2,1],[2,1]],
-  ["playwright","playwright.svg","Playwright","Playwright","提交前在浏览器里验证扩展交互。","Verifies browser extension interactions before a commit.",[4,1],[4,1]],
-  ["node","nodedotjs.png","Node.js","Node.js","提交前检查脚本语法，支持桌面构建。","Checks script syntax before commits and runs desktop builds.",[5,1],[5,1]],
-  ["vscode","vscode.png","VS Code","VS Code","开发工作区，汇集代码编辑和 AI 辅助研发。","The workspace for editing code and AI-assisted development.",[2,2],[2,2]],
-  ["git","git.svg","Git","Git","记录本地版本，把验证过的改动提交到 GitHub。","Tracks local versions and sends verified commits to GitHub.",[4,2],[4,2]],
-  ["github","github.svg","GitHub","GitHub","托管代码，同时触发官网部署和扩展发布。","Hosts code and triggers website deployments and extension publishing.",[6,2],[6,2]],
-  ["actions","githubactions.svg","GitHub Actions","GitHub Actions","检测变更、校验 MV3 并提交扩展。","Detects changes, validates MV3, and submits extensions.",[8,2],[6,3]],
-  ["store","chromewebstore.png","Chrome 应用商店","Chrome Web Store","审核并分发浏览器扩展。","Reviews and distributes browser extensions.",[10,2],[6,4]],
-  ["video","/assets/products/bilibili-icon.png","飞羽 · B站学习助手","Feiyu Bilibili Study Assistant","生成视频总结，按时间戳跳转。","Summarizes videos with clickable timestamps.",[12,2],[5,4]],
-  ["electron","electron.svg","Electron","Electron","运行和打包 Windows 桌面助手。","Powers and packages the Windows utility.",[1,3],[1,4]],
-  ["desktop","/assets/products/desktop-assistant.svg","飞羽 · 桌面 AI 助手","Feiyu Desktop AI Assistant","用置顶悬浮栏发起文字或截图问答。","Ask from a floating prompt bar using text or screenshots.",[2,3],[2,4]],
-  ["scripts","/assets/products/userscripts.svg","飞羽脚本集","Feiyu Userscripts","在脚本猫查看飞羽用户脚本。","Find Feiyu userscripts on ScriptCat.",[4,3],[3,4]],
-  ["paper","/assets/products/paper-icon.png","飞羽 · 学术论文助手","Feiyu Paper Assistant","辅助阅读、翻译和导出论文记录。","Helps read, translate, and export paper notes.",[6,3],[3,5]],
-  ["worker","cloudflareworkers.svg","Cloudflare Workers","Cloudflare Workers","接收并转发扩展里的用户反馈。","Receives and forwards extension feedback.",[8,3],[4,5]],
-  ["server","serverchan.png","Server酱","ServerChan","把反馈消息推送到微信。","Sends feedback alerts to WeChat.",[10,3],[5,5]],
-  ["wechat","wechat.png","微信","WeChat","接收飞羽反馈提醒。","Receives Feiyu feedback notifications.",[12,3],[6,5]]
+  ["gemini","googlegemini.png","Gemini","Gemini","辅助需求调研、设计和排错。","Supports research, design and troubleshooting.",[1,1],[1,1]],
+  ["deepseek","deepseek.png","DeepSeek","DeepSeek","通过 Harness 辅助编写和调试代码。","Helps write and debug code through the Harness.",[1,3],[2,1]],
+  ["vscode","vscode.png","VS Code","VS Code","编辑飞羽代码并通过 Git 提交。","Edit Feiyu code and commit with Git.",[3,2],[2,2]],
+  ["playwright","playwright.svg","Playwright","Playwright","提交前验证浏览器扩展的交互。","Tests browser extension interactions before commits.",[3,3],[3,1]],
+  ["github","github.svg","GitHub","GitHub","接收 Git 提交，托管代码、安装包和使用说明。","Receives Git commits and hosts code, packages, and guides.",[5,2],[4,2]],
+  ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","从 GitHub 自动部署官网，提供 DNS 和 HTTPS。","Deploys the website from GitHub and provides DNS and HTTPS.",[6,1],[1,3]],
+  ["website","/favicon.svg","飞羽官网","Feiyu website","展示产品和运行截图，域名由 Name.com 注册。","Shows Feiyu products and screenshots on a domain registered with Name.com.",[8,1],[2,3]],
+  ["actions","githubactions.svg","GitHub Actions","GitHub Actions","用 Node.js 检查语法，校验 MV3 并提交扩展。","Checks JavaScript with Node.js, validates MV3, and submits extensions.",[6,3],[5,3]],
+  ["store","chromewebstore.png","Chrome 应用商店","Chrome Web Store","审核扩展，提供 B 站学习助手安装。","Reviews extensions and distributes the Feiyu Bilibili Study Assistant.",[8,3],[6,3]],
+  ["paper","/assets/products/paper-icon.png","飞羽 · 学术论文助手","Feiyu Paper Assistant","阅读和翻译论文，可从 GitHub Releases 获取安装包。","Reads and translates papers. Install from GitHub Releases.",[10,1],[2,5]],
+  ["desktop","/assets/products/desktop-assistant.svg","飞羽 · 桌面 AI 助手","Feiyu Desktop AI Assistant","基于 Electron。源码和 Windows 使用说明在 GitHub。","Built with Electron. Source code and the Windows guide are on GitHub.",[12,1],[5,5]],
+  ["video","/assets/products/bilibili-icon.png","飞羽 · B站学习助手","Feiyu Bilibili Study Assistant","生成带时间戳的视频总结，可从 Chrome 应用商店安装。","Makes timestamped video summaries. Install from the Chrome Web Store.",[10,3],[5,6]],
+  ["scripts","/assets/products/userscripts.svg","飞羽脚本集","Feiyu Userscripts","在脚本猫浏览和安装飞羽脚本。","Browse and install Feiyu userscripts on ScriptCat.",[12,3],[2,6]]
 ];
 
 const edges = [
   ["gemini","vscode","development"],
   ["deepseek","vscode","development"],
-  ["playwright","git","development"],
-  ["node","git","development"],
-  ["vscode","git"],
-  ["git","github"],
-  ["domain","cloudflare"],
+  ["playwright","github","development"],
+  ["vscode","github"],
   ["github","cloudflare"],
   ["cloudflare","website"],
   ["github","actions"],
   ["actions","store"],
   ["store","video"],
-  ["video","worker"],
-  ["paper","worker"],
-  ["worker","server"],
-  ["server","wechat"],
-  ["electron","desktop"]
+  ["github","paper"],
+  ["github","desktop"]
 ];
+
+const developmentTools = new Set(["gemini", "deepseek", "vscode", "playwright"]);
+const products = new Set(["paper", "desktop", "video", "scripts"]);
 
 let lang = "zh";
 const language = document.getElementById("language");
@@ -205,6 +195,8 @@ for (const entry of techData) {
   button.type = "button";
   button.className = "tech-node";
   button.dataset.tech = id;
+  if (developmentTools.has(id)) button.dataset.zone = "development";
+  if (products.has(id)) button.dataset.zone = "product";
   button.style.setProperty("--col", col);
   button.style.setProperty("--row", row);
   button.style.setProperty("--narrow-col", narrowCol);
@@ -234,6 +226,13 @@ connections.append(defs);
 const lineGroup = svgElement("g", {});
 connections.append(lineGroup);
 
+function insetPoint(center, toward, gap) {
+  const dx = toward.x - center.x;
+  const dy = toward.y - center.y;
+  const scale = (center.radius + gap) / Math.max(Math.abs(dx), Math.abs(dy));
+  return { x: center.x + dx * scale, y: center.y + dy * scale };
+}
+
 function drawConnections() {
   const frame = connections.getBoundingClientRect();
   if (!frame.width || !frame.height) return;
@@ -242,22 +241,24 @@ function drawConnections() {
     const tile = button.getBoundingClientRect();
     return [id, { x: tile.left - frame.left + tile.width / 2, y: tile.top - frame.top + tile.height / 2, radius: tile.width / 2 }];
   }));
+  const narrow = window.matchMedia("(max-width: 760px)").matches;
+  const productBranchY = narrow ? (locations.get("store").y + locations.get("paper").y) / 2 : locations.get("github").y;
   lineGroup.replaceChildren();
   for (const [source, target, style] of edges) {
     const a = locations.get(source);
     const b = locations.get(target);
-    const dx = b.x - a.x;
-    const dy = b.y - a.y;
-    const dist = Math.hypot(dx, dy);
-    const ux = dx / dist;
-    const uy = dy / dist;
-    const axis = Math.max(Math.abs(ux), Math.abs(uy));
-    const start = a.radius / axis + 2;
-    const end = b.radius / axis + 3;
-    if (start + end >= dist) continue;
-    lineGroup.append(svgElement("line", {
-      x1: a.x + start * ux, y1: a.y + start * uy,
-      x2: b.x - end * ux, y2: b.y - end * uy,
+    let turns = [];
+    if (source === "github" && products.has(target)) {
+      turns = narrow ? [{ x: a.x, y: productBranchY }, { x: b.x, y: productBranchY }] : [{ x: b.x, y: productBranchY }];
+    } else if (source === "github" && target === "cloudflare" && narrow) {
+      const branchY = (a.y + b.y) / 2;
+      turns = [{ x: a.x, y: branchY }, { x: b.x, y: branchY }];
+    } else if (source === "store" && narrow) {
+      turns = [{ x: a.x, y: b.y }];
+    }
+    const points = [insetPoint(a, turns[0] || b, 2), ...turns, insetPoint(b, turns.at(-1) || a, 3)];
+    lineGroup.append(svgElement("polyline", {
+      points: points.map(point => `${point.x},${point.y}`).join(" "),
       class: style || "",
       "data-from": source, "data-to": target,
       "marker-end": "url(#networkArrow)"
