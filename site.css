@@ -86,6 +86,7 @@ a:focus-visible, button:focus-visible {
 nav, .footer-inner > div { display: flex; align-items: center; gap: 22px; }
 nav a, .footer-inner a { color: var(--muted); font-size: .89rem; text-decoration: none; }
 nav a:hover, .footer-inner a:hover { text-decoration: underline; text-underline-offset: 3px; }
+nav .header-wzry { padding: 4px 9px; border-radius: 8px; background: var(--soft); color: var(--blue); font-weight: 650; }
 .language {
   background: var(--soft);
   color: var(--ink);
@@ -148,6 +149,19 @@ nav a:hover, .footer-inner a:hover { text-decoration: underline; text-underline-
 .video-media { background: var(--video); }
 .desktop-media { background: var(--desktop); }
 .scripts-media { background: var(--scripts); }
+.wzry-media { background: var(--desktop); }
+.wzry-mark { background: var(--soft); color: var(--blue); font-weight: 750; }
+.product-icon.wzry-mark { display: grid; place-items: center; font-size: 1.38rem; width: 44px; height: 44px; }
+.pick .wzry-mark { border-radius: 5px; width: 22px; line-height: 22px; }
+.wzry-example { width: min(100%, 480px); padding: 15px 17px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--shadow); }
+.wzry-example h3 { margin: 0; line-height: 1.35; font-size: 1rem; }
+.wzry-example-caption { color: var(--muted); font-size: .82rem; }
+.wzry-example dl { margin: 8px 0; font-size: .89rem; }
+.wzry-example dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding-block: 5px; border-top: 1px solid var(--line); }
+.wzry-example dt { display: flex; align-items: baseline; gap: 8px; }
+.wzry-example dt small { min-width: 3em; color: var(--muted); font-size: .76rem; }
+.wzry-example dd { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+.wzry-example-delta { padding: 5px 8px; border-radius: 6px; background: var(--soft); color: var(--blue); font-size: .81rem; }
 .preview {
   display: grid;
   place-items: center;
@@ -352,6 +366,7 @@ dialog::backdrop { background: #0b132abd; }
   .slide { grid-template-columns: 1fr; min-height: 0; }
   .product-copy { padding: 18px 19px; }
   .product-icon { width: 35px; height: 35px; margin-bottom: 9px; }
+  .product-icon.wzry-mark { width: 35px; height: 35px; }
   .actions { margin-top: 12px; }
   .slide-media { min-height: 165px; padding: 10px 12px; border-radius: 0; }
   .preview { max-height: 222px; }

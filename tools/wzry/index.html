@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="查询王者荣耀英雄的省标、市标和区县标门槛，对比自己的战力还差多少分。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <title>王者战区战力查询 · 飞羽 Feiyu</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="飞羽 Feiyu">
+        <img src="/favicon.svg" width="34" height="34" alt="">
+        <span>飞羽 <span class="brand-latin">Feiyu</span></span>
+      </a>
+      <nav aria-label="站点导航"><a href="/">返回飞羽首页</a></nav>
+    </div>
+  </header>
+
+  <main class="shell wzry-tool">
+    <h1>王者战区战力查询</h1>
+    <p class="tool-description">选英雄和账号平台，对比各地拿标需要多少分。</p>
+
+    <form id="power-form" class="power-form">
+      <label>
+        <span>英雄</span>
+        <input name="hero" type="search" list="hero-options" maxlength="32" required autocomplete="off" placeholder="例如：孙尚香">
+      </label>
+      <datalist id="hero-options"></datalist>
+      <label>
+        <span>账号平台</span>
+        <select name="platform">
+          <option value="aqq">安卓 QQ</option>
+          <option value="awx">安卓微信</option>
+          <option value="iqq">苹果 QQ</option>
+          <option value="iwx">苹果微信</option>
+        </select>
+      </label>
+      <label>
+        <span>我的战力 <small>选填</small></span>
+        <input name="score" type="number" min="0" max="999999" step="1" inputmode="numeric" placeholder="例如：2000">
+      </label>
+      <button type="submit" class="button" disabled>查询战力</button>
+    </form>
+    <noscript><p class="tool-status">请启用 JavaScript 后查询战力。</p></noscript>
+    <p id="tool-status" class="tool-status" role="status"></p>
+
+    <section id="power-results" aria-labelledby="result-title" hidden>
+      <div class="result-header">
+        <h2 id="result-title"></h2>
+        <p id="result-date"></p>
+      </div>
+      <div class="level-options" role="group" aria-label="选择战区层级">
+        <button type="button" data-level="province" aria-pressed="false">
+          <span>最低省标</span><strong></strong><small></small>
+        </button>
+        <button type="button" data-level="city" aria-pressed="false">
+          <span>最低市标</span><strong></strong><small></small>
+        </button>
+        <button type="button" data-level="county" aria-pressed="false">
+          <span>最低区县标</span><strong></strong><small></small>
+        </button>
+      </div>
+      <div class="rank-panel">
+        <h3 id="rank-title"></h3>
+        <table aria-labelledby="rank-title">
+          <thead>
+            <tr><th scope="col">序号</th><th scope="col">战区</th><th scope="col">门槛</th><th id="delta-heading" scope="col">距门槛</th></tr>
+          </thead>
+          <tbody id="rank-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="tool-source">数据来自 <a href="https://wz.hay7.cn/guide/" target="_blank" rel="noopener">HaiYang 助手</a>。荣耀称号以游戏内榜单及结算为准。</p>
+  </main>
+</body>
+</html>
