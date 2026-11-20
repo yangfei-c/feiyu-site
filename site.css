@@ -150,9 +150,6 @@ nav .header-wzry { padding: 4px 9px; border-radius: 8px; background: var(--soft)
 .desktop-media { background: var(--desktop); }
 .scripts-media { background: var(--scripts); }
 .wzry-media { background: var(--desktop); }
-.wzry-mark { background: var(--soft); color: var(--blue); font-weight: 750; }
-.product-icon.wzry-mark { display: grid; place-items: center; font-size: 1.38rem; width: 44px; height: 44px; }
-.pick .wzry-mark { border-radius: 5px; width: 22px; line-height: 22px; }
 .wzry-example { width: min(100%, 480px); padding: 15px 17px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--shadow); }
 .wzry-example h3 { margin: 0; line-height: 1.35; font-size: 1rem; }
 .wzry-example-caption { color: var(--muted); font-size: .82rem; }
@@ -366,7 +363,6 @@ dialog::backdrop { background: #0b132abd; }
   .slide { grid-template-columns: 1fr; min-height: 0; }
   .product-copy { padding: 18px 19px; }
   .product-icon { width: 35px; height: 35px; margin-bottom: 9px; }
-  .product-icon.wzry-mark { width: 35px; height: 35px; }
   .actions { margin-top: 12px; }
   .slide-media { min-height: 165px; padding: 10px 12px; border-radius: 0; }
   .preview { max-height: 222px; }

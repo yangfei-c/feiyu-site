@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <style>
+    .tile { fill: #244bcb; }
+    @media (prefers-color-scheme: dark) { .tile { fill: #385ccf; } }
+  </style>
+  <rect class="tile" x="3" y="3" width="42" height="42" rx="11"/>
+  <path fill="#fff" d="M24 9a11 11 0 0 0-11 11c0 6.1 6.4 11.3 10.2 15a1.2 1.2 0 0 0 1.6 0C28.6 31.3 35 26.1 35 20A11 11 0 0 0 24 9Z"/>
+  <path fill="none" stroke="#244bcb" stroke-linecap="round" stroke-width="2.4" d="M20 23v-2m4 2v-6m4 6v-9"/>
+  <path fill="none" stroke="#bcd1ff" stroke-linecap="round" stroke-width="2" d="M17 37.5c1.8 1 4.2 1.5 7 1.5s5.2-.5 7-1.5"/>
+</svg>

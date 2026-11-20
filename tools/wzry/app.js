@@ -12,6 +12,9 @@ const results = document.getElementById("power-results");
 const levelButtons = Array.from(document.querySelectorAll("[data-level]"));
 const heroIds = new Map();
 const powerCache = new Map();
+const regionData = fetch("./region-data.json", { signal: AbortSignal.timeout(4000) })
+  .then(response => response.ok ? response.json() : null)
+  .catch(() => null);
 let rankings = null;
 let activeLevel = "county";
 
@@ -61,11 +64,23 @@ async function loadHeroes() {
   }
 }
 
-function readRankings(platform) {
+function parentRegion({ adcode, region }, level, index) {
+  const code = String(adcode);
+  if (level === "province" || !index || !/^[0-9]{6}$/.test(code)) return "";
+  const provinceCode = code.slice(0, 2);
+  const province = index.provinces?.[provinceCode];
+  // Taiwan codes can vary by data provider, so confirm the district name before adding a city.
+  const cityCodeMatches = provinceCode !== "71" || index.taiwanCountyNames?.[code] === region;
+  const city = level === "county" && cityCodeMatches ? index.cities?.[code.slice(0, 4)] : "";
+  return [province, city].filter(name => name && !region.includes(name)).join(" · ");
+}
+
+function readRankings(platform, index) {
   return Object.fromEntries(Object.keys(levels).map(level => {
     const rows = Array.isArray(platform[level]) ? platform[level] : [];
-    return [level, rows.filter(row => typeof row?.region === "string" && row.region &&
-      Number.isSafeInteger(row.power) && row.power >= 0).sort((a, b) => a.power - b.power).slice(0, 5)];
+    const ranked = rows.filter(row => typeof row?.region === "string" && row.region &&
+      Number.isSafeInteger(row.power) && row.power >= 0).sort((a, b) => a.power - b.power).slice(0, 5);
+    return [level, ranked.map(row => ({ ...row, parent: parentRegion(row, level, index) }))];
   }));
 }
 
@@ -77,10 +92,17 @@ function renderRanks() {
   for (const button of levelButtons) {
     button.setAttribute("aria-pressed", String(button.dataset.level === activeLevel));
   }
-  document.getElementById("rank-rows").replaceChildren(...rows.map(({ region, power }, index) => {
+  document.getElementById("rank-rows").replaceChildren(...rows.map(({ region, power, parent }, index) => {
     const row = document.createElement("tr");
     row.insertCell().textContent = index + 1;
-    row.insertCell().textContent = region;
+    const place = row.insertCell();
+    place.textContent = region;
+    if (parent) {
+      const subtitle = document.createElement("small");
+      subtitle.className = "region-parent";
+      subtitle.textContent = parent;
+      place.append(subtitle);
+    }
     row.insertCell().textContent = numberFormat.format(power);
     if (score !== null) {
       const cell = row.insertCell();
@@ -93,9 +115,9 @@ function renderRanks() {
   }));
 }
 
-function showResults(payload, hero, platformKey) {
+function showResults(payload, hero, platformKey, index) {
   const platform = payload.data?.platforms?.[platformKey];
-  rankings = platform ? readRankings(platform) : null;
+  rankings = platform ? readRankings(platform, index) : null;
   const available = rankings && ["county", "city", "province"].find(level => rankings[level].length);
   if (!available) {
     rankings = null;
@@ -112,6 +134,7 @@ function showResults(payload, hero, platformKey) {
     button.disabled = !lowest;
     button.querySelector("strong").textContent = lowest ? numberFormat.format(lowest.power) : "暂无";
     button.querySelector("small").textContent = lowest?.region ?? "";
+    button.querySelector(".region-parent").textContent = lowest?.parent ?? "";
   }
   renderRanks();
   results.hidden = false;
@@ -149,8 +172,11 @@ form.addEventListener("submit", async event => {
   showStatus("正在查询战力…");
   try {
     const cached = powerCache.get(key);
-    const payload = cached?.payload ?? await request("power", { hero: heroParam, platform, top: 5 });
-    if (showResults(payload, hero, platform)) {
+    const [payload, index] = await Promise.all([
+      cached?.payload ?? request("power", { hero: heroParam, platform, top: 5 }),
+      regionData
+    ]);
+    if (showResults(payload, hero, platform, index)) {
       if (!cached) powerCache.set(key, { payload, expires: Date.now() + 5 * 60 * 1000 });
       showStatus("");
     } else {

@@ -14,7 +14,8 @@ const techData = [
   ["paper","/assets/products/paper-icon.png","学术论文助手","Paper Assistant","双语读论文、划词提问","Read bilingually and ask about selected text",[10,1],[2,5]],
   ["desktop","/assets/products/desktop-assistant.svg","桌面 AI 助手","Desktop AI Assistant","在桌面悬浮窗里截图提问","Ask about screenshots from a floating window",[12,1],[5,5]],
   ["video","/assets/products/bilibili-icon.png","B 站学习助手","Bilibili Study Assistant","总结视频、按时间戳跳转","Summarize videos and jump to timestamps",[10,3],[5,6]],
-  ["scripts","/assets/products/userscripts.svg","B 站每日经验助手","Bilibili Daily XP Assistant","查看每日任务与升级进度","Track daily tasks and level progress",[12,3],[2,6]]
+  ["scripts","/assets/products/userscripts.svg","B 站每日经验助手","Bilibili Daily XP Assistant","查看每日任务与升级进度","Track daily tasks and level progress",[12,3],[2,6]],
+  ["wzry","/assets/products/wzry.svg","王者战区","Honor of Kings Power Lookup","查询英雄战力与战区门槛","Compare regional hero power thresholds",[11,3],[4,5]]
 ];
 
 const edges = [
@@ -30,12 +31,13 @@ const edges = [
   ["github","desktop"],
   ["github","video"],
   ["github","scripts"],
+  ["website","wzry"],
   ["store","video","store"],
   ["store","paper","store"]
 ];
 
 const developmentTools = new Set(["gemini", "deepseek", "vscode", "playwright"]);
-const products = new Set(["paper", "desktop", "video", "scripts"]);
+const products = new Set(["paper", "desktop", "video", "scripts", "wzry"]);
 
 let lang = "zh";
 const language = document.getElementById("language");
@@ -194,25 +196,26 @@ function bindTooltip(target, content, tap = false) {
 
 for (const entry of techData) {
   const [id, icon, , , , , [col, row], [narrowCol, narrowRow]] = entry;
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "tech-node";
-  button.dataset.tech = id;
-  if (developmentTools.has(id)) button.dataset.zone = "development";
-  if (products.has(id)) button.dataset.zone = "product";
-  button.style.setProperty("--col", col);
-  button.style.setProperty("--row", row);
-  button.style.setProperty("--narrow-col", narrowCol);
-  button.style.setProperty("--narrow-row", narrowRow);
+  const node = document.createElement(id === "wzry" ? "a" : "button");
+  if (id === "wzry") node.href = "/tools/wzry/";
+  else node.type = "button";
+  node.className = "tech-node";
+  node.dataset.tech = id;
+  if (developmentTools.has(id)) node.dataset.zone = "development";
+  if (products.has(id)) node.dataset.zone = "product";
+  node.style.setProperty("--col", col);
+  node.style.setProperty("--row", row);
+  node.style.setProperty("--narrow-col", narrowCol);
+  node.style.setProperty("--narrow-row", narrowRow);
   const image = document.createElement("img");
   image.src = iconPath(icon);
   image.alt = "";
   image.width = 25;
   image.height = 25;
-  button.append(image);
-  bindTooltip(button, () => techLabel(entry), true);
-  nodes.set(id, button);
-  network.append(button);
+  node.append(image);
+  bindTooltip(node, () => techLabel(entry), id !== "wzry");
+  nodes.set(id, node);
+  network.append(node);
 }
 
 function svgElement(name, attrs) {
@@ -265,6 +268,8 @@ function drawConnections() {
       } else {
         turns = [{ x: b.x, y: productBranchY }];
       }
+    } else if (source === "website" && target === "wzry") {
+      turns = [{ x: a.x, y: productBranchY }, { x: b.x, y: productBranchY }];
     } else if (source === "github" && target === "cloudflare" && narrow) {
       const branchY = (a.y + b.y) / 2;
       turns = [{ x: a.x, y: branchY }, { x: b.x, y: branchY }];

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="查询王者荣耀英雄的省标、市标和区县标门槛，对比自己的战力还差多少分。">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/products/wzry.svg">
   <link rel="stylesheet" href="/site.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
+  <link rel="stylesheet" href="./style.css?v=regions">
+  <script src="./app.js?v=regions" defer></script>
   <title>王者战区战力查询 · 飞羽 Feiyu</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
   </header>
 
   <main class="shell wzry-tool">
-    <h1>王者战区战力查询</h1>
+    <h1 class="tool-title"><img src="/assets/products/wzry.svg" width="38" height="38" alt="">王者战区战力查询</h1>
     <p class="tool-description">选英雄和账号平台，对比各地拿标需要多少分。</p>
 
     <form id="power-form" class="power-form">
@@ -56,13 +56,13 @@
       </div>
       <div class="level-options" role="group" aria-label="选择战区层级">
         <button type="button" data-level="province" aria-pressed="false">
-          <span>最低省标</span><strong></strong><small></small>
+          <span>最低省标</span><strong></strong><small></small><small class="region-parent"></small>
         </button>
         <button type="button" data-level="city" aria-pressed="false">
-          <span>最低市标</span><strong></strong><small></small>
+          <span>最低市标</span><strong></strong><small></small><small class="region-parent"></small>
         </button>
         <button type="button" data-level="county" aria-pressed="false">
-          <span>最低区县标</span><strong></strong><small></small>
+          <span>最低区县标</span><strong></strong><small></small><small class="region-parent"></small>
         </button>
       </div>
       <div class="rank-panel">
@@ -76,7 +76,7 @@
       </div>
     </section>
 
-    <p class="tool-source">数据来自 <a href="https://wz.hay7.cn/guide/" target="_blank" rel="noopener">HaiYang 助手</a>。荣耀称号以游戏内榜单及结算为准。</p>
+    <p class="tool-source">战力数据来自 <a href="https://wz.hay7.cn/guide/" target="_blank" rel="noopener">HaiYang 助手</a>，地区归属参照 <a href="https://github.com/xiangyuecn/AreaCity-JsSpider-StatsGov" target="_blank" rel="noopener">行政区划数据</a>。荣耀称号以游戏内榜单及结算为准。</p>
   </main>
 </body>
 </html>

@@ -1,5 +1,5 @@
 Product icons, promotional artwork, and screenshots come from the Feiyu extension and desktop repositories.
-Feiyu brand icon: /favicon.svg. Feiyu Desktop and Userscripts website icons are original SVGs. Current desktop and script screenshots are supplied by Feiyu.
+Feiyu brand icon: /favicon.svg. Feiyu Desktop, Userscripts, and Honor of Kings Power Lookup website icons are original SVGs. Current desktop and script screenshots are supplied by Feiyu.
 
 Official brand sources
 github: https://github.githubassets.com/favicons/favicon.svg
