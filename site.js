@@ -26,10 +26,12 @@ const edges = [
   ["cloudflare","website"],
   ["github","actions"],
   ["actions","store"],
-  ["store","video"],
   ["github","paper"],
   ["github","desktop"],
-  ["github","scripts"]
+  ["github","video"],
+  ["github","scripts"],
+  ["store","video","store"],
+  ["store","paper","store"]
 ];
 
 const developmentTools = new Set(["gemini", "deepseek", "vscode", "playwright"]);
@@ -222,7 +224,9 @@ function svgElement(name, attrs) {
 const defs = svgElement("defs", {});
 const arrow = svgElement("marker", { id: "networkArrow", markerWidth: "6", markerHeight: "6", refX: "5", refY: "3", orient: "auto" });
 arrow.append(svgElement("path", { d: "M0 0 L6 3 L0 6 Z" }));
-defs.append(arrow);
+const storeArrow = arrow.cloneNode(true);
+storeArrow.id = "networkStoreArrow";
+defs.append(arrow, storeArrow);
 connections.append(defs);
 const lineGroup = svgElement("g", {});
 connections.append(lineGroup);
@@ -250,7 +254,10 @@ function drawConnections() {
     const b = locations.get(target);
     let turns = [];
     if (source === "github" && products.has(target)) {
-      if (narrow) {
+      if (narrow && target === "video") {
+        // Use the space to the left of the video tile to avoid the desktop tile above it.
+        turns = [{ x: a.x, y: b.y }];
+      } else if (narrow) {
         // The scripts tile sits below the paper tile, so approach it from the left.
         const branchX = target === "scripts" ? locations.get("cloudflare").x : b.x;
         turns = [{ x: a.x, y: productBranchY }, { x: branchX, y: productBranchY }];
@@ -261,6 +268,15 @@ function drawConnections() {
     } else if (source === "github" && target === "cloudflare" && narrow) {
       const branchY = (a.y + b.y) / 2;
       turns = [{ x: a.x, y: branchY }, { x: b.x, y: branchY }];
+    } else if (source === "store" && target === "paper") {
+      if (narrow) {
+        const branchY = (a.y + productBranchY) / 2;
+        const branchX = (locations.get("github").x + b.x) / 2;
+        turns = [{ x: a.x, y: branchY }, { x: branchX, y: branchY }, { x: branchX, y: b.y }];
+      } else {
+        const branchX = (a.x + b.x) / 2;
+        turns = [{ x: branchX, y: a.y }, { x: branchX, y: b.y }];
+      }
     } else if (source === "store" && narrow) {
       turns = [{ x: a.x, y: b.y }];
     }
@@ -269,7 +285,7 @@ function drawConnections() {
       points: points.map(point => `${point.x},${point.y}`).join(" "),
       class: style || "",
       "data-from": source, "data-to": target,
-      "marker-end": "url(#networkArrow)"
+      "marker-end": style === "store" ? "url(#networkStoreArrow)" : "url(#networkArrow)"
     }));
   }
 }

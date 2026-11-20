@@ -14,6 +14,7 @@
   --desktop: #e8eff9;
   --scripts: #edf4fa;
   --track: #a0adc0;
+  --store-track: #5576c7;
   --shadow: 0 10px 30px #18345b13, 0 1px 3px #18345b12;
 }
 @media (prefers-color-scheme: dark) {
@@ -33,6 +34,7 @@
     --desktop: #25344d;
     --scripts: #29374b;
     --track: #74849c;
+    --store-track: #8aa9f2;
     --shadow: 0 14px 36px #080a1460, 0 1px 3px #0004;
   }
 }
@@ -251,7 +253,9 @@ nav a:hover, .footer-inner a:hover { text-decoration: underline; text-underline-
 #connections { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 #connections polyline { fill: none; stroke: var(--track); stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
 #connections polyline.development { stroke-dasharray: 4 3; stroke: var(--blue); }
+#connections polyline.store { stroke: var(--store-track); }
 #connections marker path { fill: var(--track); }
+#connections #networkStoreArrow path { fill: var(--store-track); }
 .tech-node {
   grid-column: var(--col);
   grid-row: var(--row);
