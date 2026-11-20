@@ -6,7 +6,7 @@ const techData = [
   ["deepseek","deepseek.png","DeepSeek","DeepSeek","写代码、排查错误","Write and debug code",[1,3],[2,1]],
   ["vscode","vscode.png","VS Code","VS Code","编辑代码、管理提交","Edit code and manage commits",[3,2],[2,2]],
   ["playwright","playwright.svg","Playwright","Playwright","自动测试浏览器扩展","Automate browser extension testing",[3,3],[3,1]],
-  ["github","github.svg","GitHub","GitHub","托管源码和安装包","Host source code and installers",[5,2],[4,2]],
+  ["github","github.svg","GitHub","GitHub","托管源码、安装包和项目说明","Host source code, installers and project docs",[5,2],[4,2]],
   ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","自动部署网站","Deploy the website automatically",[6,1],[1,3]],
   ["website","/favicon.svg","官网","Website","浏览产品与运行演示","Explore products and demos",[8,1],[2,3]],
   ["actions","githubactions.svg","GitHub Actions","GitHub Actions","自动检查代码并提交扩展","Check code and submit extensions",[6,3],[5,3]],
@@ -14,7 +14,7 @@ const techData = [
   ["paper","/assets/products/paper-icon.png","学术论文助手","Paper Assistant","双语读论文、划词提问","Read bilingually and ask about selected text",[10,1],[2,5]],
   ["desktop","/assets/products/desktop-assistant.svg","桌面 AI 助手","Desktop AI Assistant","在桌面悬浮窗里截图提问","Ask about screenshots from a floating window",[12,1],[5,5]],
   ["video","/assets/products/bilibili-icon.png","B 站学习助手","Bilibili Study Assistant","总结视频、按时间戳跳转","Summarize videos and jump to timestamps",[10,3],[5,6]],
-  ["scripts","/assets/products/userscripts.svg","用户脚本","Userscripts","在脚本猫中管理和运行脚本","Manage and run userscripts in ScriptCat",[12,3],[2,6]]
+  ["scripts","/assets/products/userscripts.svg","B 站每日经验助手","Bilibili Daily XP Assistant","查看每日任务与升级进度","Track daily tasks and level progress",[12,3],[2,6]]
 ];
 
 const edges = [
@@ -28,7 +28,8 @@ const edges = [
   ["actions","store"],
   ["store","video"],
   ["github","paper"],
-  ["github","desktop"]
+  ["github","desktop"],
+  ["github","scripts"]
 ];
 
 const developmentTools = new Set(["gemini", "deepseek", "vscode", "playwright"]);
@@ -249,7 +250,14 @@ function drawConnections() {
     const b = locations.get(target);
     let turns = [];
     if (source === "github" && products.has(target)) {
-      turns = narrow ? [{ x: a.x, y: productBranchY }, { x: b.x, y: productBranchY }] : [{ x: b.x, y: productBranchY }];
+      if (narrow) {
+        // The scripts tile sits below the paper tile, so approach it from the left.
+        const branchX = target === "scripts" ? locations.get("cloudflare").x : b.x;
+        turns = [{ x: a.x, y: productBranchY }, { x: branchX, y: productBranchY }];
+        if (target === "scripts") turns.push({ x: branchX, y: b.y });
+      } else {
+        turns = [{ x: b.x, y: productBranchY }];
+      }
     } else if (source === "github" && target === "cloudflare" && narrow) {
       const branchY = (a.y + b.y) / 2;
       turns = [{ x: a.x, y: branchY }, { x: b.x, y: branchY }];
