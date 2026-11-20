@@ -2,19 +2,19 @@
 
 const techData = [
   // id, icon, Chinese name, English name, Chinese hint, English hint, desktop cell, narrow cell
-  ["gemini","googlegemini.png","Gemini","Gemini","辅助需求调研、设计和排错。","Supports research, design and troubleshooting.",[1,1],[1,1]],
-  ["deepseek","deepseek.png","DeepSeek","DeepSeek","通过 Harness 辅助编写和调试代码。","Helps write and debug code through the Harness.",[1,3],[2,1]],
-  ["vscode","vscode.png","VS Code","VS Code","编辑飞羽代码并通过 Git 提交。","Edit Feiyu code and commit with Git.",[3,2],[2,2]],
-  ["playwright","playwright.svg","Playwright","Playwright","提交前验证浏览器扩展的交互。","Tests browser extension interactions before commits.",[3,3],[3,1]],
-  ["github","github.svg","GitHub","GitHub","接收 Git 提交，托管代码、安装包和使用说明。","Receives Git commits and hosts code, packages, and guides.",[5,2],[4,2]],
-  ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","从 GitHub 自动部署官网，提供 DNS 和 HTTPS。","Deploys the website from GitHub and provides DNS and HTTPS.",[6,1],[1,3]],
-  ["website","/favicon.svg","飞羽官网","Feiyu website","展示产品和运行截图，域名由 Name.com 注册。","Shows Feiyu products and screenshots on a domain registered with Name.com.",[8,1],[2,3]],
-  ["actions","githubactions.svg","GitHub Actions","GitHub Actions","用 Node.js 检查语法，校验 MV3 并提交扩展。","Checks JavaScript with Node.js, validates MV3, and submits extensions.",[6,3],[5,3]],
-  ["store","chromewebstore.png","Chrome 应用商店","Chrome Web Store","审核扩展，提供 B 站学习助手安装。","Reviews extensions and distributes the Feiyu Bilibili Study Assistant.",[8,3],[6,3]],
-  ["paper","/assets/products/paper-icon.png","飞羽 · 学术论文助手","Feiyu Paper Assistant","阅读和翻译论文，可从 GitHub Releases 获取安装包。","Reads and translates papers. Install from GitHub Releases.",[10,1],[2,5]],
-  ["desktop","/assets/products/desktop-assistant.svg","飞羽 · 桌面 AI 助手","Feiyu Desktop AI Assistant","基于 Electron。源码和 Windows 使用说明在 GitHub。","Built with Electron. Source code and the Windows guide are on GitHub.",[12,1],[5,5]],
-  ["video","/assets/products/bilibili-icon.png","飞羽 · B站学习助手","Feiyu Bilibili Study Assistant","生成带时间戳的视频总结，可从 Chrome 应用商店安装。","Makes timestamped video summaries. Install from the Chrome Web Store.",[10,3],[5,6]],
-  ["scripts","/assets/products/userscripts.svg","飞羽脚本集","Feiyu Userscripts","在脚本猫浏览和安装飞羽脚本。","Browse and install Feiyu userscripts on ScriptCat.",[12,3],[2,6]]
+  ["gemini","googlegemini.png","Gemini","Gemini","分析需求、梳理方案","Analyze requirements and plan solutions",[1,1],[1,1]],
+  ["deepseek","deepseek.png","DeepSeek","DeepSeek","写代码、排查错误","Write and debug code",[1,3],[2,1]],
+  ["vscode","vscode.png","VS Code","VS Code","编辑代码、管理提交","Edit code and manage commits",[3,2],[2,2]],
+  ["playwright","playwright.svg","Playwright","Playwright","自动测试浏览器扩展","Automate browser extension testing",[3,3],[3,1]],
+  ["github","github.svg","GitHub","GitHub","托管源码和安装包","Host source code and installers",[5,2],[4,2]],
+  ["cloudflare","cloudflare-mark.png","Cloudflare","Cloudflare","自动部署网站","Deploy the website automatically",[6,1],[1,3]],
+  ["website","/favicon.svg","官网","Website","浏览产品与运行演示","Explore products and demos",[8,1],[2,3]],
+  ["actions","githubactions.svg","GitHub Actions","GitHub Actions","自动检查代码并提交扩展","Check code and submit extensions",[6,3],[5,3]],
+  ["store","chromewebstore.png","Chrome 应用商店","Chrome Web Store","安装和更新浏览器扩展","Install and update browser extensions",[8,3],[6,3]],
+  ["paper","/assets/products/paper-icon.png","学术论文助手","Paper Assistant","双语读论文、划词提问","Read bilingually and ask about selected text",[10,1],[2,5]],
+  ["desktop","/assets/products/desktop-assistant.svg","桌面 AI 助手","Desktop AI Assistant","在桌面悬浮窗里截图提问","Ask about screenshots from a floating window",[12,1],[5,5]],
+  ["video","/assets/products/bilibili-icon.png","B 站学习助手","Bilibili Study Assistant","总结视频、按时间戳跳转","Summarize videos and jump to timestamps",[10,3],[5,6]],
+  ["scripts","/assets/products/userscripts.svg","用户脚本","Userscripts","在脚本猫中管理和运行脚本","Manage and run userscripts in ScriptCat",[12,3],[2,6]]
 ];
 
 const edges = [
